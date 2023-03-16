@@ -23,6 +23,9 @@ class Movie
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $overview = null;
 
+    #[ORM\Column(type: Types::BLOB, nullable: true)]
+    private $image = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -60,6 +63,18 @@ class Movie
     public function setOverview(?string $overview): self
     {
         $this->overview = $overview;
+
+        return $this;
+    }
+
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    public function setImage($image): self
+    {
+        $this->image = $image;
 
         return $this;
     }
